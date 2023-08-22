@@ -1,15 +1,26 @@
-<table border="1">
+<table>
   <thead>
     <tr>
       <th>ID</th>
       <th>Name</th>
-      <!-- You can add more columns based on your data structure -->
+      <th>Tags</th>
+      <th>Identifier</th>
     </tr>
   </thead>
   <tbody>
-    <!-- <tr *ngFor="let workspace of workspaces">
+    <tr *ngFor="let workspace of data.workspaces">
       <td>{{ workspace.id }}</td>
-      <td>{{ workspace.name }}</td>
-    </tr> -->
+      <td>
+        <a [href]="workspace.selfHref" target="_blank">
+          {{ workspace.name }}
+        </a>
+      </td>
+      <td>
+        <span>
+          {{ workspace.tags }}
+        </span>
+      </td>
+      <td><i [ngClass]="workspace.identifierIcon"></i></td>
+    </tr>
   </tbody>
 </table>
