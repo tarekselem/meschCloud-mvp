@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { WorkspacesService } from './workspaces-api.service';
+import { WorkspacesService } from './workspaces.service';
+import { Observable } from 'rxjs';
+import { WorkspacesList } from './models';
 
 @Component({
   selector: 'app-workspaces',
@@ -7,13 +9,11 @@ import { WorkspacesService } from './workspaces-api.service';
   styleUrls: ['./workspaces.component.scss'],
 })
 export class WorkspacesComponent {
-  workspaces: any[] = [];
+  workspaces$: Observable<WorkspacesList>;
 
   constructor(private readonly service: WorkspacesService) {}
 
   ngOnInit(): void {
-    this.service.getWorkspaces().subscribe((data: any) => {
-      this.workspaces = data;
-    });
+    this.workspaces$ = this.service.getWorkspaces();
   }
 }

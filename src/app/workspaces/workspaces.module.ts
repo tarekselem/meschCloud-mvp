@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { WorkspacesComponent } from './workspaces.component';
 import { WorkspacesRoutingModule } from './workspaces-routing.module';
-import { WorkspacesService } from './workspaces-api.service';
+import { WorkspacesService } from './workspaces.service';
 import { WorkspacesListComponent } from './components';
 
 @NgModule({
